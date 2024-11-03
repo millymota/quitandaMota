@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: beige;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqoJQ_f0Gb49O-ToCWGChSrFeiiryf86N3yiXnBCJsLdd6Ia-T);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgb(48, 81, 58);
+}
+
+h1 {
+    text-align: center;
+    color: rgb(48, 81, 58);
+}
+
+.inputs {
+    margin-bottom: 20px;
+}
+
+legend {
+    color: rgb(19, 73, 32);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+fieldset {
+    margin: 15px;
+    padding: 10px;
+}
+
+select {
+    border: 1px solid #3a1e1e;
+    width: 100%;
+    margin: 5px 0; 
+    padding: 8px; 
+    box-sizing: border-box;
+}
+
+label {
+    display: block;
+    margin: 10px 0;
+    font-size: smaller;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(48, 81, 58);
+}
+
+input {
+    width: calc(100% - 20px);
+    padding: 8px;
+    border: 1px solid #3a1e1e;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+button {
+    width: auto;
+    padding: 8px 16px;
+    background-color: rgb(0, 159, 35);
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: smaller;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button:hover {
+    background-color: rgb(19, 73, 32);
+}
+
+#produtos {
+    margin-top: 20px;
+    background-color: rgb(181, 224, 204);
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+    border-radius: 4px;
+}
+#opcoesPagamento {
+    display: none;
+    margin-top: 10px;
+}
+
+#inputSenha {
+    margin-top: 10px;
+}
+
+#finalizarDiv {
+    margin-top: 20px;
+}
+
+#carrinho {
+    margin-top: 20px;
+}
+
+#carrinho div {
+    background-color: rgb(166, 214, 170);
+    color: #474d48;
+    padding: 5px;
+    text-align: center;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+</style>
+<body>
+    <div class="container">
+        <h1>Carrinho</h1>
+        <div id="carrinho">
+            {% for produto, quantidade in carrinho.items() %}
+                <div>{{ produto }} - R$ {{ quantidade }}</div>
+            {% endfor %}
+        </div>
+        <h2>Total: R$ {{ total }}</h2>
+        <a href="/finalizar"><button>Finalizar Compra</button></a>
+        <a href="/"><button>Voltar</button></a>
+    </div>
+</body>
+</html>
