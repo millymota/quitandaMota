@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="login.css">
     <title>Quitanda Mota</title>
 </head>
 <style>
@@ -72,19 +71,18 @@ h4 a {
 </style>
 <body>
     <h4><a href="index.html">Quitanda Mota</a></h4>
-    <form id="login" method="post">
-        <div class="inputs">
+    <form action = "/verificar" method="post">
             <fieldset>
                 <legend>Faça seu login e inicie suas compras!</legend>
                 <div class="textfield">
                     <label for="usuario">Usuário</label>
-                    <input type="text" id="usuario" name="usuario" required placeholder="exemplo.quitandamota">
+                    <input type="text" id="user" name="user" required placeholder="@quitandamota é um bom exemplo!">
                 </div>
                 <div class="textfield">
                     <label for="senha">Senha</label>
-                    <input type="password" id="senha" name="Senha" placeholder="senhasupersecreta123">
+                    <input type="password" id="senha" name="senha" placeholder="senhasupersecreta123">
                 </div>
-                <button type="submit"> Entrar </button>
+                <button type="submit" onclick="verificar()"> Entrar </button>
             </fieldset>
         </div>
 </body>
